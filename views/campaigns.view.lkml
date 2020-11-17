@@ -176,12 +176,12 @@ view: campaigns {
     sql: ${campaign_id} ;;
   }
 
-  measure: roas {
-    label: "ROAS"
-    type: number
-    value_format_name: percent_2
-    sql: if (${sum_cost}=0,0,${campaign_conversion_report.SQL_TABLE_NAME.sum_conversion_value}/${sum_cost});;
-  }
+  # measure: roas {
+  #   label: "ROAS"
+  #   type: number
+  #   value_format_name: percent_2
+  #   sql: if (${sum_cost}=0,0,${campaign_conversion_report.SQL_TABLE_NAME.sum_conversion_value}/${sum_cost});;
+  # }
 
   dimension: date_diff {
     type: number

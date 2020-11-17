@@ -58,6 +58,15 @@ view: campaign_conversion_report {
     value_format: "$0.00"
     sql: ${metrics_all_conversions_value} ;;
   }
+
+
+  measure: roas {
+    label: "ROAS"
+    type: number
+    value_format_name: percent_2
+    # sql: if (${campaigns.SQL_TABLE_NAME.sum_cost}=0,0,${sum_conversion_value}/${campaigns.SQL_TABLE_NAME.sum_cost});;
+    sql: if (${campaigns.SQL_TABLE_NAME}.sum_cost=0,0,${sum_conversion_value}/${campaigns.SQL_TABLE_NAME}.sum_cost);;
+  }
   # end
 
   dimension: campaign_id {
@@ -81,6 +90,8 @@ view: campaign_conversion_report {
     type: string
     sql: ${TABLE}.segments_conversion_action_category ;;
   }
+
+
 
   dimension: metrics_conversions_value {
     type: number

@@ -15,7 +15,7 @@ explore: campaign_conv_blend {
   join: campaign_conversion_report {
       type: left_outer
       sql_on: ${campaigns.campaign_id}=${campaign_conversion_report.campaign_id} and ${campaigns.segments_date}=${campaign_conversion_report.segments_date};;
-      relationship: one_to_one
+      relationship: one_to_many
     }
   }
 
